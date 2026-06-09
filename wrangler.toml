@@ -1,0 +1,19 @@
+name            = "sa-fuel-api"
+main            = "src/index.ts"
+compatibility_date = "2024-09-01"
+workers_dev     = true
+
+# D1 database binding
+[[d1_databases]]
+binding      = "DB"
+database_name = "sa-fuel-prices"
+database_id  = "13dea816-3ec2-4cbe-aec4-2e47d4c40994"  # replace after: wrangler d1 create sa-fuel-prices
+
+# Secrets — set via CLI:
+#   wrangler secret put API_KEY
+# Do NOT put actual values here — this file is committed to git
+[vars]
+ENVIRONMENT = "production"
+
+[assets]
+directory = "./public"

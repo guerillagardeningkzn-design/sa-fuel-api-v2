@@ -1,0 +1,22 @@
+{
+  "name": "sa-fuel-api",
+  "version": "2.0.0",
+  "description": "South African fuel price REST API — Cloudflare Workers + D1 + TypeScript",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:migrate": "wrangler d1 execute sa-fuel-prices --file=migrations/0001_initial.sql",
+    "db:seed": "node scripts/generate-seed.js | wrangler d1 execute sa-fuel-prices --command",
+    "db:local": "wrangler d1 execute sa-fuel-prices --local --file=migrations/0001_initial.sql",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240725.0",
+    "typescript": "^5.5.4",
+    "wrangler": "^4.98.0"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}
